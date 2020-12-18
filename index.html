@@ -32,14 +32,14 @@
 
       <section class="cards">
 
-        <div class="card">
-          <img src="css/img/cover.jpg" alt="">
+        <div class="card" v-for="element in films">
+          <img :src="element.backdrop_path" alt="">
           <div class="info">
-            <p>Titolo: </p>
-            <p>Titolo Originale: </p>
-            <p>Lingua: </p>
+            <p>Titolo: {{ element.title }}</p>
+            <p>Titolo Originale: {{ element.original_title}}</p>
+            <p>Lingua: {{ element.original_language}}</p>
             <p>Voto: </p>
-            <p>Descrizione: </p>
+            <p>Descrizione: {{ element.overview }}</p>
           </div>
         </div>
 

@@ -104,6 +104,7 @@ main > .cards > .card {
 main > .cards > .card > img {
   width: 342px;
   transition: all 0.5s;
+  object-position: center;
 }
 
 main > .cards > .card > .info {
