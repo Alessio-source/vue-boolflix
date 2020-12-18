@@ -34,7 +34,7 @@ header > .img {
   background-repeat: no-repeat;
   background-size: cover;
   height: 500px;
-  clip-path: polygon(0 0, 50% 80px, 100% 0, 100% 420px, 50% 500px, 0 420px);
+  clip-path: polygon(0 0, 50% 80px, 100% 0, 100% 500px, 50% 420px, 0 500px);
   margin-top: 20px;
 }
 
