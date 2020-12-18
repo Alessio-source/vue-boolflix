@@ -29,33 +29,6 @@ body {
   font-family: Netflix;
 }
 
-header > .img {
-  background-image: url("img/background-header.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 500px;
-  clip-path: polygon(0 0, 50% 80px, 100% 0, 100% 500px, 50% 420px, 0 500px);
-  margin-top: 20px;
-}
-
-header > .img > .layover {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-header > .img > .layover > h1 {
-  font-family: 'Bebas Neue', cursive;
-  color: #F81B0E;
-  font-size: 80px;
-}
-
-main {
-  margin-top: 50px;
-}
-
 main > nav {
   display: flex;
   align-items: center;
