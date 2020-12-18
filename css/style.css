@@ -122,6 +122,7 @@ main > .cards > .card > .info {
   background-color: #333333;
   color: white;
   font-weight: lighter;
+  overflow-y: auto;
 }
 
 main > .cards > .card > .info .fa-star {
