@@ -60,7 +60,6 @@ main > nav {
   display: flex;
   align-items: center;
   padding: 15px;
-  border-bottom: 3px solid white;
   background-color: #333333;
   color: white;
 }
