@@ -62,6 +62,9 @@ main > nav {
   padding: 15px;
   background-color: #333333;
   color: white;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
 }
 
 main > nav > h2 {
