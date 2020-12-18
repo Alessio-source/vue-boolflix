@@ -8,6 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js" integrity="sha512-DZqqY3PiOvTP9HkjIWgjO6ouCbq+dxqWoJZ/Q+zPYNHmlnI2dQnbJ5bxAHpAMw+LXRm4D72EIRXzvcHQtE8/VQ==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+
     <title>BoolFlix</title>
   </head>
   <body>
@@ -20,11 +23,11 @@
       </div>
     </header>
 
-    <main>
+    <main id="app">
       <nav>
         <h2>BoolFlix</h2>
         <label for="search">Cerca per titolo: </label>
-        <input type="text" name="search" value="">
+        <input type="text" name="search" value="" v-model="searchText" @keyup.enter="searchMovie">
       </nav>
 
       <section class="cards">
@@ -44,5 +47,6 @@
 
     </main>
 
+    <script src="js/script.js" charset="utf-8"></script>
   </body>
 </html>
