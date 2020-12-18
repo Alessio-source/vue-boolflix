@@ -121,6 +121,10 @@ main > .cards > .card > .info {
   font-weight: lighter;
 }
 
+main > .cards > .card > .info .fa-star {
+  color: #FFD700;
+}
+
 main > .cards > .card:hover > img {
   opacity: 0;
 }
