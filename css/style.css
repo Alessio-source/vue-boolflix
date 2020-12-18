@@ -1,0 +1,86 @@
+/* font */
+@font-face {
+    font-family: Netflix;
+    font-weight: lighter;
+    src: url("font/Netflix-Sans-Light.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Netflix;
+    font-weight: normal;
+    src: url("font/Netflix-Sans-Medium.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Netflix;
+    font-weight: bold;
+    src: url("font/Netflix-Sans-Bold.otf") format("opentype");
+}
+/* /font */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #141414;
+  font-family: Netflix;
+}
+
+header > .img {
+  background-image: url("img/background-header.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 500px;
+  clip-path: polygon(0 0, 50% 80px, 100% 0, 100% 420px, 50% 500px, 0 420px);
+  margin-top: 20px;
+}
+
+header > .img > .layover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+header > .img > .layover > h1 {
+  font-family: 'Bebas Neue', cursive;
+  color: #F81B0E;
+  font-size: 80px;
+}
+
+main {
+  margin-top: 50px;
+}
+
+main > nav {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 3px solid white;
+  background-color: #333333;
+  color: white;
+}
+
+main > nav > h2 {
+  text-transform: uppercase;
+  color: #F81B0E;
+}
+
+main > nav > label {
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+main > nav > input[type="text"] {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  font-family: Netflix;
+  outline: none;
+  background-color: #141414;
+  color: white;
+}
