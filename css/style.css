@@ -77,6 +77,10 @@ main > .cards {
   padding: 20px;
 }
 
+main > .cards > #empty {
+  color: white;
+}
+
 main > .cards > .card {
   position: relative;
   width: 342px;
