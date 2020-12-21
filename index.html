@@ -21,6 +21,7 @@
         <h2>BoolFlix</h2>
         <label for="search">Cerca per titolo: </label>
         <input type="text" name="search" value="" v-model="searchText" @keyup.enter="searchMovie">
+        <button type="button" name="button" @click="searchMovie">Cerca</button>
       </nav>
 
       <section class="cards">

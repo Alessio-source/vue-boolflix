@@ -52,12 +52,20 @@ main > nav > label {
 
 main > nav > input[type="text"] {
   padding: 10px;
+  margin-right: 10px;
   border-radius: 5px;
   border: none;
   font-family: Netflix;
   outline: none;
   background-color: #141414;
   color: white;
+}
+
+main > nav > button {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
 }
 
 main > .cards {
