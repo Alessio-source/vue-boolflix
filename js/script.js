@@ -30,6 +30,16 @@ var app = new Vue({
           if (response.data.results[index].overview == "") {
             questo.films[index].overview = "Descrizione mancante";
           }
+
+          questo.films[index].vote_average = Math.round(questo.films[index].vote_average / 2);
+
+          setTimeout( () => {
+            for (let i = 0; i < questo.films[index].vote_average; i++) {
+              var card = questo.$el.getElementsByClassName("card");
+              var star = card[index].getElementsByClassName("fa-star");
+              star[i].classList.add("active");
+            }
+          }, 250)
         })
       });
 

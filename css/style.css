@@ -106,7 +106,7 @@ main > .cards > .card > .info {
   overflow-y: auto;
 }
 
-main > .cards > .card > .info .fa-star {
+main > .cards > .card > .info .active {
   color: #FFD700;
 }
 
