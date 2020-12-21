@@ -30,7 +30,7 @@
         <h2>{{ title1 }}</h2>
         <section>
           <div class="card" v-for="element in films">
-            <img :src="element.backdrop_path" alt="">
+            <img :src="element.poster_path" alt="">
             <div class="info">
               <p>Titolo: {{ element.title }}</p>
               <p>Titolo Originale: {{ element.original_title}}</p>
@@ -44,9 +44,9 @@
         <h2>{{ title2 }}</h2>
         <section>
           <div class="card" v-for="element in series">
-            <img :src="element.backdrop_path" alt="">
+            <img :src="element.poster_path" alt="">
             <div class="info">
-              <p>Titolo: {{ element.name }}</p>
+              <p>Titolo: {{ element.name }} {{ element.title }}</p>
               <p>Titolo Originale: {{ element.original_name }}</p>
               <p>Lingua: {{ element.original_language }}</p>
               <p>Voto: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> {{ element.vote_average }}</p>

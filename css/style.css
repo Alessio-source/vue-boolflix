@@ -91,12 +91,13 @@ main > .cards > section {
 main > .cards > section > .card {
   position: relative;
   width: 342px;
+  height: 517px;
   cursor: pointer;
 }
 
 main > .cards > section > .card > img {
   width: 342px;
-  height: 200px;
+  height: 517px;
   transition: all 0.5s;
   object-position: center;
 }

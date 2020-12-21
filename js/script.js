@@ -76,11 +76,11 @@ var app = new Vue({
           resultOne.forEach((element, index) => {
             arrFilms.push(resultOne[index]);
 
-            if(resultOne[index].backdrop_path == null) {
-              arrFilms[index].backdrop_path = "https://via.placeholder.com/342x196.png?text=Cover+Mancante";
+            if(resultOne[index].poster_path == null) {
+              arrFilms[index].poster_path = "https://via.placeholder.com/342x517.png?text=Cover+Mancante";
             } else {
-              var link = "https://image.tmdb.org/t/p/w342/" + resultOne[index].backdrop_path;
-              arrFilms[index].backdrop_path = link;
+              var link = "https://image.tmdb.org/t/p/h632/" + resultOne[index].poster_path;
+              arrFilms[index].poster_path = link;
             }
 
             if (resultOne[index].overview == "") {
@@ -116,11 +116,11 @@ var app = new Vue({
           resultTwo.forEach((element, index) => {
             arrSeries.push(resultTwo[index]);
 
-            if(resultTwo[index].backdrop_path == null) {
-              arrSeries[index].backdrop_path = "https://via.placeholder.com/342x196.png?text=Cover+Mancante";
+            if(resultTwo[index].poster_path == null) {
+              arrSeries[index].poster_path = "https://via.placeholder.com/342x517.png?text=Cover+Mancante";
             } else {
-              var link = "https://image.tmdb.org/t/p/w342" + resultTwo[index].backdrop_path;
-              arrSeries[index].backdrop_path = link;
+              var link = "https://image.tmdb.org/t/p/h632" + resultTwo[index].poster_path;
+              arrSeries[index].poster_path= link;
             }
 
             if (resultTwo[index].overview == "") {
@@ -172,6 +172,8 @@ var app = new Vue({
         } else {
           elementThis.empty = "";
         }
+
+        this.searchText = "";
     }))
     },
   }
