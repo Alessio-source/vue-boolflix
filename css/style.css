@@ -69,28 +69,30 @@ main > nav > button {
 }
 
 main > .cards {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 342px);
+  grid-gap: 10px;
   justify-content: center;
+  align-content: flex-start;
   margin-top: 30px;
   padding: 20px;
 }
 
-main > .cards > #empty {
+main > #empty {
+  text-align: center;
+  margin-top: 50px;
   color: white;
 }
 
 main > .cards > .card {
   position: relative;
   width: 342px;
-  margin-left: 10px;
-  margin-bottom: 10px;
   cursor: pointer;
 }
 
 main > .cards > .card > img {
   width: 342px;
+  height: 100%;
   transition: all 0.5s;
   object-position: center;
 }

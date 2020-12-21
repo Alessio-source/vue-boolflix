@@ -24,9 +24,10 @@
         <button type="button" name="button" @click="searchMovie">Cerca</button>
       </nav>
 
+      <p id="empty">{{ empty }}</p>
+      
       <section class="cards">
 
-        <p id="empty">{{ empty }}</p>
 
         <div class="card" v-for="element in films">
           <img :src="element.backdrop_path" alt="">
