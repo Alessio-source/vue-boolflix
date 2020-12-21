@@ -41,9 +41,9 @@ var app = new Vue({
             questo.films.push(responseOne.data.results[index]);
 
             if(responseOne.data.results[index].backdrop_path == null) {
-              questo.films[index].backdrop_path = "https://via.placeholder.com/220x330.png?text=Cover+Mancante";
+              questo.films[index].backdrop_path = "https://via.placeholder.com/342x196.png?text=Cover+Mancante";
             } else {
-              var link = "https://image.tmdb.org/t/p/w220_and_h330_face/" + responseOne.data.results[index].backdrop_path;
+              var link = "https://image.tmdb.org/t/p/w342/" + responseOne.data.results[index].backdrop_path;
               questo.films[index].backdrop_path = link;
             }
 
@@ -78,9 +78,9 @@ var app = new Vue({
             questo.series.push(responseTwo.data.results[index]);
 
             if(responseTwo.data.results[index].backdrop_path == null) {
-              questo.series[index].backdrop_path = "https://via.placeholder.com/220x330.png?text=Cover+Mancante";
+              questo.series[index].backdrop_path = "https://via.placeholder.com/342x196.png?text=Cover+Mancante";
             } else {
-              var link = "https://image.tmdb.org/t/p/w220_and_h330_face/" + responseTwo.data.results[index].backdrop_path;
+              var link = "https://image.tmdb.org/t/p/w342" + responseTwo.data.results[index].backdrop_path;
               questo.series[index].backdrop_path = link;
             }
 
