@@ -68,6 +68,10 @@ main > nav > button {
   outline: none;
 }
 
+main > .cards {
+  padding-bottom: 20px;
+}
+
 main > .cards > #empty,
 main > .cards > h2 {
   text-align: center;
