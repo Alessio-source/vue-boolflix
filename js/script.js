@@ -6,35 +6,56 @@ var app = new Vue({
     searchText: "",
     empty: ""
   },
+  mounted() {
+    this.searchMovie();
+  },
   methods: {
     searchMovie: function() {
 
       const textSearch = this.searchText.split(" ").join("+");
       const elementThis = this;
-      
+
       elementThis.films = [];
       elementThis.series = [];
 
       const arrFilms = elementThis.films;
       const arrSeries = elementThis.series;
+      var call1 = "";
+      var call2 = "";
 
-
-      var call1 = axios.get('https://api.themoviedb.org/3/search/movie', {
-        params: {
-          api_key: "87999777404e3c905e01e7dfe9466bae",
-          language: "it",
-          query: textSearch,
-          page: 1,
-        }
-      })
-      var call2 = axios.get('https://api.themoviedb.org/3/search/tv', {
-        params: {
-          api_key: "87999777404e3c905e01e7dfe9466bae",
-          language: "it",
-          query: textSearch,
-          page: 1,
-        }
-      })
+      if (textSearch == "") {
+        call1 = axios.get('https://api.themoviedb.org/3/movie/popular', {
+          params: {
+            api_key: "87999777404e3c905e01e7dfe9466bae",
+            language: "it",
+            page: 1,
+          }
+        });
+        call2 = axios.get('https://api.themoviedb.org/3/movie/top_rated', {
+          params: {
+            api_key: "87999777404e3c905e01e7dfe9466bae",
+            language: "it",
+            page: 1,
+          }
+        });
+      } else {
+        call1 = axios.get('https://api.themoviedb.org/3/search/movie', {
+          params: {
+            api_key: "87999777404e3c905e01e7dfe9466bae",
+            language: "it",
+            query: textSearch,
+            page: 1,
+          }
+        });
+        call2 = axios.get('https://api.themoviedb.org/3/search/tv', {
+          params: {
+            api_key: "87999777404e3c905e01e7dfe9466bae",
+            language: "it",
+            query: textSearch,
+            page: 1,
+          }
+        });
+      }
 
       axios.all([call1, call2]).then(axios.spread((...responseOnes) => {
         const responseOne = responseOnes[0];
