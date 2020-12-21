@@ -68,36 +68,36 @@ main > nav > button {
   outline: none;
 }
 
-main > .cards {
+main > .cards > #empty,
+main > .cards > h2 {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+main > .cards > section {
   display: grid;
   grid-template-columns: repeat(auto-fill, 342px);
   grid-gap: 10px;
   justify-content: center;
   align-content: flex-start;
-  margin-top: 30px;
-  padding: 20px;
 }
 
-main > #empty {
-  text-align: center;
-  margin-top: 50px;
-  color: white;
-}
-
-main > .cards > .card {
+main > .cards > section > .card {
   position: relative;
   width: 342px;
   cursor: pointer;
 }
 
-main > .cards > .card > img {
+main > .cards > section > .card > img {
   width: 342px;
   height: 100%;
   transition: all 0.5s;
   object-position: center;
 }
 
-main > .cards > .card > .info {
+main > .cards > section > .card > .info {
   position: absolute;
   top: 0;
   left: 0;
@@ -112,15 +112,15 @@ main > .cards > .card > .info {
   overflow-y: auto;
 }
 
-main > .cards > .card > .info .active {
+main > .cards > section > .card > .info .active {
   color: #FFD700;
 }
 
-main > .cards > .card:hover > img {
+main > .cards > section > .card:hover > img {
   opacity: 0;
 }
 
-main > .cards > .card:hover > .info {
+main > .cards > section > .card:hover > .info {
   opacity: 1;
   transition: all 0.5s;
   transition-delay: 0.6s;

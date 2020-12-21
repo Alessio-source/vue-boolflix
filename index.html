@@ -24,31 +24,36 @@
         <button type="button" name="button" @click="searchMovie">Cerca</button>
       </nav>
 
-      <p id="empty">{{ empty }}</p>
-
       <section class="cards">
+        <p id="empty">{{ empty }}</p>
 
-        <div class="card" v-for="element in films">
-          <img :src="element.backdrop_path" alt="">
-          <div class="info">
-            <p>Titolo: {{ element.title }}</p>
-            <p>Titolo Originale: {{ element.original_title}}</p>
-            <p>Lingua: {{ element.original_language }}</p>
-            <p>Voto: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> {{ element.vote_average }}</p>
-            <p>Descrizione: {{ element.overview }}</p>
+        <h2>{{ title1 }}</h2>
+        <section>
+          <div class="card" v-for="element in films">
+            <img :src="element.backdrop_path" alt="">
+            <div class="info">
+              <p>Titolo: {{ element.title }}</p>
+              <p>Titolo Originale: {{ element.original_title}}</p>
+              <p>Lingua: {{ element.original_language }}</p>
+              <p>Voto: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> {{ element.vote_average }}</p>
+              <p>Descrizione: {{ element.overview }}</p>
+            </div>
           </div>
-        </div>
+        </section>
 
-        <div class="card" v-for="element in series">
-          <img :src="element.backdrop_path" alt="">
-          <div class="info">
-            <p>Titolo: {{ element.name }}</p>
-            <p>Titolo Originale: {{ element.original_name }}</p>
-            <p>Lingua: {{ element.original_language }}</p>
-            <p>Voto: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> {{ element.vote_average }}</p>
-            <p>Descrizione: {{ element.overview }}</p>
+        <h2>{{ title2 }}</h2>
+        <section>
+          <div class="card" v-for="element in series">
+            <img :src="element.backdrop_path" alt="">
+            <div class="info">
+              <p>Titolo: {{ element.name }}</p>
+              <p>Titolo Originale: {{ element.original_name }}</p>
+              <p>Lingua: {{ element.original_language }}</p>
+              <p>Voto: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> {{ element.vote_average }}</p>
+              <p>Descrizione: {{ element.overview }}</p>
+            </div>
           </div>
-        </div>
+        </section>
 
       </section>
 

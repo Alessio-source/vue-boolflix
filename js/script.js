@@ -4,7 +4,9 @@ var app = new Vue({
     films: [],
     series: [],
     searchText: "",
-    empty: ""
+    empty: "",
+    title1: "",
+    title2: "",
   },
   mounted() {
     this.searchMovie();
@@ -22,6 +24,7 @@ var app = new Vue({
       const arrSeries = elementThis.series;
       var call1 = "";
       var call2 = "";
+      var isSearch = false;
 
       if (textSearch == "") {
         call1 = axios.get('https://api.themoviedb.org/3/movie/popular', {
@@ -38,6 +41,7 @@ var app = new Vue({
             page: 1,
           }
         });
+        isSearch = false;
       } else {
         call1 = axios.get('https://api.themoviedb.org/3/search/movie', {
           params: {
@@ -55,6 +59,7 @@ var app = new Vue({
             page: 1,
           }
         });
+        isSearch = true;
       }
 
       axios.all([call1, call2]).then(axios.spread((...responseOnes) => {
@@ -144,6 +149,23 @@ var app = new Vue({
 
           })
         };
+
+        if(isSearch) {
+          if(arrFilms == 0) {
+            elementThis.title1 = "";
+          } else {
+            elementThis.title1 = "Film";
+          }
+
+          if(arrSeries == 0) {
+            elementThis.title2 = "";
+          } else {
+            elementThis.title2 = "Serie tv";
+          }
+        } else {
+          elementThis.title1 = "Film popolari";
+          elementThis.title2 = "Film meglio valutati";
+        }
 
         if(arrFilms.length == 0 && arrSeries.length == 0) {
           elementThis.empty = "Non è stato trovato nessun film o serie tv con la chiave \"" + textSearch + "\"";
