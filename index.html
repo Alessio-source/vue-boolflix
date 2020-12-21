@@ -20,8 +20,8 @@
       <nav>
         <h2>BoolFlix</h2>
         <label for="search">Cerca per titolo: </label>
-        <input type="text" name="search" value="" v-model="searchText" @keyup.enter="searchMovie">
-        <button type="button" name="button" @click="searchMovie">Cerca</button>
+        <input type="text" name="search" value="" v-model="searchText" @keyup.enter="search">
+        <button type="button" name="button" @click="search">Cerca</button>
       </nav>
 
       <section class="cards">
@@ -41,6 +41,14 @@
           </div>
         </section>
 
+        <div class="page">
+          <button type="button" name="button" @click="back">Back Page</button>
+          <button class="numbers" type="button" name="button" @click="page(1)" v-if="maxPage1 > 1">1</button>
+          <button class="numbers" type="button" name="button" v-for="element in arrMaxPage1" @click="page(element)">{{ element }}</button>
+          <button class="numbers" type="button" name="button" @click="page(maxPage1)" v-if="max1 < maxPage1">{{ maxPage1 }}</button>
+          <button type="button" name="button" @click="next">Next Page</button>
+        </div>
+
         <h2>{{ title2 }}</h2>
         <section>
           <div class="card" v-for="element in series">
@@ -54,6 +62,14 @@
             </div>
           </div>
         </section>
+
+        <div class="page" v-if="series.length > 0">
+          <button type="button" name="button" @click="backS">Back Page</button>
+          <button class="numbers" type="button" name="button" @click="pageElement(1)" v-if="maxPage2 > 1">1</button>
+          <button class="numbers" type="button" name="button" v-for="element in arrMaxPage2" @click="pageElement(element)">{{ element }}</button>
+          <button class="numbers" type="button" name="button" @click="pageElement(maxPage2)" v-if="max2 < maxPage2">{{ maxPage2 }}</button>
+          <button type="button" name="button" @click="nextS">Next Page</button>
+        </div>
 
       </section>
 

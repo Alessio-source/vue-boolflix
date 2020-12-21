@@ -135,3 +135,22 @@ main > .cards > section > .card:hover > .info {
   transition: all 0.5s;
   transition-delay: 0.6s;
 }
+
+.page {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.page button:not(:first-of-type) {
+  margin-left: 10px;
+}
+
+.page button {
+  padding: 10px;
+  background-color: white;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
