@@ -2,7 +2,7 @@ var app = new Vue({
   el: "#app",
   data: {
     films: [],
-    searchText: ""
+    searchText: "",
   },
   methods: {
     searchMovie: function() {
@@ -39,7 +39,15 @@ var app = new Vue({
               var star = card[index].getElementsByClassName("fa-star");
               star[i].classList.add("active");
             }
-          }, 250)
+          }, 250);
+
+          if (questo.films[index].original_language == "it") {
+            questo.films[index].original_language = "🇮🇹";
+          } else if (questo.films[index].original_language == "en") {
+            questo.films[index].original_language = "🇬🇧";
+          }
+
+
         })
       });
 
