@@ -8,15 +8,20 @@ var app = new Vue({
   },
   methods: {
     searchMovie: function() {
-      var text = this.searchText.split(" ").join("+");
-      var questo = this;
-      questo.films = [];
-      questo.series = [];
+      const textSearch = this.searchText.split(" ").join("+");
+      const elementThis = this;
+
+      elementThis.films = [];
+      elementThis.series = [];
+
+      const arrFilms = elementThis.films;
+      const arrSeries = elementThis.series;
+
       var call1 = axios.get('https://api.themoviedb.org/3/search/movie', {
         params: {
           api_key: "87999777404e3c905e01e7dfe9466bae",
           language: "it",
-          query: questo.searchText,
+          query: textSearch,
           page: 1,
         }
       })
@@ -24,7 +29,7 @@ var app = new Vue({
         params: {
           api_key: "87999777404e3c905e01e7dfe9466bae",
           language: "it",
-          query: questo.searchText,
+          query: textSearch,
           page: 1,
         }
       })
@@ -37,36 +42,39 @@ var app = new Vue({
         second(responseTwo);
 
         function one(responseOne) {
-          responseOne.data.results.forEach((element, index) => {
-            questo.films.push(responseOne.data.results[index]);
 
-            if(responseOne.data.results[index].backdrop_path == null) {
-              questo.films[index].backdrop_path = "https://via.placeholder.com/342x196.png?text=Cover+Mancante";
+          const resultOne = responseOne.data.results;
+
+          resultOne.forEach((element, index) => {
+            arrFilms.push(resultOne[index]);
+
+            if(resultOne[index].backdrop_path == null) {
+              arrFilms[index].backdrop_path = "https://via.placeholder.com/342x196.png?text=Cover+Mancante";
             } else {
-              var link = "https://image.tmdb.org/t/p/w342/" + responseOne.data.results[index].backdrop_path;
-              questo.films[index].backdrop_path = link;
+              var link = "https://image.tmdb.org/t/p/w342/" + resultOne[index].backdrop_path;
+              arrFilms[index].backdrop_path = link;
             }
 
-            if (responseOne.data.results[index].overview == "") {
-              questo.films[index].overview = "Descrizione mancante";
+            if (resultOne[index].overview == "") {
+              arrFilms[index].overview = "Descrizione mancante";
             }
 
-            questo.films[index].vote_average = Math.round(questo.films[index].vote_average / 2);
+            arrFilms[index].vote_average = Math.round(arrFilms[index].vote_average / 2);
 
             setTimeout( () => {
-              for (let i = 0; i < questo.films[index].vote_average; i++) {
-                var card = questo.$el.getElementsByClassName("card");
+              for (let i = 0; i < arrFilms[index].vote_average; i++) {
+                var card = elementThis.$el.getElementsByClassName("card");
                 var star = card[index].getElementsByClassName("fa-star");
                 star[i].classList.add("active");
               }
             }, 250);
 
-            if (questo.films[index].original_language == "it") {
-              questo.films[index].original_language = "🇮🇹";
-            } else if (questo.films[index].original_language == "en") {
-              questo.films[index].original_language = "🇬🇧";
-            } else if (questo.films[index].original_language == "") {
-              questo.films[index].original_language = "Lingua mancante";
+            if (arrFilms[index].original_language == "it") {
+              arrFilms[index].original_language = "🇮🇹";
+            } else if (arrFilms[index].original_language == "en") {
+              arrFilms[index].original_language = "🇬🇧";
+            } else if (arrFilms[index].original_language == "") {
+              arrFilms[index].original_language = "Lingua mancante";
             }
 
 
@@ -74,47 +82,50 @@ var app = new Vue({
         };
 
         function second(responseTwo) {
-          responseTwo.data.results.forEach((element, index) => {
-            questo.series.push(responseTwo.data.results[index]);
 
-            if(responseTwo.data.results[index].backdrop_path == null) {
-              questo.series[index].backdrop_path = "https://via.placeholder.com/342x196.png?text=Cover+Mancante";
+          const resultTwo = responseTwo.data.results;
+
+          resultTwo.forEach((element, index) => {
+            arrSeries.push(resultTwo[index]);
+
+            if(resultTwo[index].backdrop_path == null) {
+              arrSeries[index].backdrop_path = "https://via.placeholder.com/342x196.png?text=Cover+Mancante";
             } else {
-              var link = "https://image.tmdb.org/t/p/w342" + responseTwo.data.results[index].backdrop_path;
-              questo.series[index].backdrop_path = link;
+              var link = "https://image.tmdb.org/t/p/w342" + resultTwo[index].backdrop_path;
+              arrSeries[index].backdrop_path = link;
             }
 
-            if (responseTwo.data.results[index].overview == "") {
-              questo.series[index].overview = "Descrizione mancante";
+            if (resultTwo[index].overview == "") {
+              arrSeries[index].overview = "Descrizione mancante";
             }
 
-            questo.series[index].vote_average = Math.round(questo.series[index].vote_average / 2);
+            arrSeries[index].vote_average = Math.round(arrSeries[index].vote_average / 2);
 
             setTimeout( () => {
-              for (let i = 0; i < questo.series[index].vote_average; i++) {
-                var index2 = index + questo.films.length;
-                var card = questo.$el.getElementsByClassName("card");
+              for (let i = 0; i < arrSeries[index].vote_average; i++) {
+                var index2 = index + arrFilms.length;
+                var card = elementThis.$el.getElementsByClassName("card");
                 var star = card[index2].getElementsByClassName("fa-star");
                 star[i].classList.add("active");
               }
             }, 250);
 
-            if (questo.series[index].original_language == "it") {
-              questo.series[index].original_language = "🇮🇹";
-            } else if (questo.series[index].original_language == "en") {
-              questo.series[index].original_language = "🇬🇧";
-            } else if (questo.series[index].original_language == "") {
-              questo.series[index].original_language = "Lingua mancante";
+            if (arrSeries[index].original_language == "it") {
+              arrSeries[index].original_language = "🇮🇹";
+            } else if (arrSeries[index].original_language == "en") {
+              arrSeries[index].original_language = "🇬🇧";
+            } else if (arrSeries[index].original_language == "") {
+              arrSeries[index].original_language = "Lingua mancante";
             }
 
 
           })
         };
 
-        if(questo.films.length == 0 && questo.series.length == 0) {
-          questo.empty = "Non è stato trovato nessun film o serie tv con la chiave \"" + questo.searchText + "\"";
+        if(arrFilms.length == 0 && arrSeries.length == 0) {
+          elementThis.empty = "Non è stato trovato nessun film o serie tv con la chiave \"" + textSearch + "\"";
         } else {
-          questo.empty = "";
+          elementThis.empty = "";
         }
     }))
     },
