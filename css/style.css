@@ -92,7 +92,7 @@ main > .cards > section > .card {
 
 main > .cards > section > .card > img {
   width: 342px;
-  height: 100%;
+  height: 200px;
   transition: all 0.5s;
   object-position: center;
 }
