@@ -92,8 +92,9 @@ var app = new Vue({
 
             setTimeout( () => {
               for (let i = 0; i < questo.series[index].vote_average; i++) {
+                var index2 = index + questo.films.length;
                 var card = questo.$el.getElementsByClassName("card");
-                var star = card[index].getElementsByClassName("fa-star");
+                var star = card[index2].getElementsByClassName("fa-star");
                 star[i].classList.add("active");
               }
             }, 250);
