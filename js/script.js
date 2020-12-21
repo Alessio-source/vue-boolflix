@@ -8,14 +8,14 @@ var app = new Vue({
   },
   methods: {
     searchMovie: function() {
-      const textSearch = this.searchText.split(" ").join("+");
-      const elementThis = this;
-
       elementThis.films = [];
       elementThis.series = [];
 
+      const textSearch = this.searchText.split(" ").join("+");
+      const elementThis = this;
       const arrFilms = elementThis.films;
       const arrSeries = elementThis.series;
+      const card = elementThis.$el.getElementsByClassName("card");
 
       var call1 = axios.get('https://api.themoviedb.org/3/search/movie', {
         params: {
@@ -63,8 +63,7 @@ var app = new Vue({
 
             setTimeout( () => {
               for (let i = 0; i < arrFilms[index].vote_average; i++) {
-                var card = elementThis.$el.getElementsByClassName("card");
-                var star = card[index].getElementsByClassName("fa-star");
+                const star = card[index].getElementsByClassName("fa-star");
                 star[i].classList.add("active");
               }
             }, 250);
@@ -103,9 +102,8 @@ var app = new Vue({
 
             setTimeout( () => {
               for (let i = 0; i < arrSeries[index].vote_average; i++) {
-                var index2 = index + arrFilms.length;
-                var card = elementThis.$el.getElementsByClassName("card");
-                var star = card[index2].getElementsByClassName("fa-star");
+                const index2 = index + arrFilms.length;
+                const star = card[index2].getElementsByClassName("fa-star");
                 star[i].classList.add("active");
               }
             }, 250);
