@@ -164,7 +164,7 @@ var app = new Vue({
           }
         } else {
           elementThis.title1 = "Film popolari";
-          elementThis.title2 = "Film meglio valutati";
+          elementThis.title2 = "Film più votati";
         }
 
         if(arrFilms.length == 0 && arrSeries.length == 0) {
