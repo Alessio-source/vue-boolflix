@@ -45,6 +45,8 @@ var app = new Vue({
             questo.films[index].original_language = "🇮🇹";
           } else if (questo.films[index].original_language == "en") {
             questo.films[index].original_language = "🇬🇧";
+          } else if (questo.films[index].original_language == "") {
+            questo.films[index].original_language = "Lingua mancante";
           }
 
 
