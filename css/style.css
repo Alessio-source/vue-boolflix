@@ -30,14 +30,15 @@ body {
 }
 
 main > nav {
-  display: flex;
-  align-items: center;
-  padding: 15px;
-  background-color: #333333;
-  color: white;
   position: sticky;
   top: 0;
   z-index: 9999;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  box-shadow: 0px 3px 8px black;
+  background-color: #333333;
+  color: white;
 }
 
 main > nav > h2 {
@@ -80,6 +81,10 @@ main > .cards > h2 {
   color: white;
 }
 
+main > .cards > h2 {
+  font-size: 3em;
+}
+
 main > .cards > section {
   display: grid;
   grid-template-columns: repeat(auto-fill, 342px);
@@ -113,7 +118,7 @@ main > .cards > section > .card > .info {
   border: 3px solid white;
   background-color: #333333;
   color: white;
-  font-weight: lighter;
+  font-weight: 200;
   overflow-y: auto;
 }
 
