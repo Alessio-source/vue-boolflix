@@ -148,7 +148,7 @@ var app = new Vue({
             if(resultOne[index].poster_path == null) {
               arrFilms[index].poster_path = "https://via.placeholder.com/342x517.png?text=Cover+Mancante";
             } else {
-              var link = "https://image.tmdb.org/t/p/h632/" + resultOne[index].poster_path;
+              var link = "https://image.tmdb.org/t/p/w342" + resultOne[index].poster_path;
               arrFilms[index].poster_path = link;
             }
 
@@ -188,7 +188,7 @@ var app = new Vue({
             if(resultTwo[index].poster_path == null) {
               arrSeries[index].poster_path = "https://via.placeholder.com/342x517.png?text=Cover+Mancante";
             } else {
-              var link = "https://image.tmdb.org/t/p/h632" + resultTwo[index].poster_path;
+              var link = "https://image.tmdb.org/t/p/w342" + resultTwo[index].poster_path;
               arrSeries[index].poster_path = link;
             }
 
