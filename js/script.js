@@ -41,7 +41,7 @@ var app = new Vue({
     },
     search: function() {
       this.page1 = 1;
-      this.page2 = 2;
+      this.page2 = 1;
       this.searchMovie();
     },
     searchMovie: function() {
