@@ -98,78 +98,43 @@ var app = new Vue({
         const responseOne = responseOnes[0];
         const responseTwo = responseOnes[1];
 
-        function pageElement1() {
-          elementThis.maxPage1 = responseOne.data.total_pages;
-          elementThis.min1 = 2;
-          elementThis.max1 = 11;
-          elementThis.arrMaxPage1 = [];
+        function pageElement(maxPage, response, min, max, arrMax, page) {
+          elementThis[maxPage] = response.data.total_pages;
+          elementThis[min] = 2;
+          elementThis[max] = 11;
+          elementThis[arrMax] = [];
 
-          while(elementThis.min1 <= elementThis.max1) {
+          while(elementThis[min] <= elementThis[max]) {
 
-            if (elementThis.max1 <= elementThis.page1) {
-              if(elementThis.maxPage2 > 6) {
-                elementThis.min1 = elementThis.page1 - 5;
+            if (elementThis[max] <= elementThis[page]) {
+              if(elementThis[maxPage] > 6) {
+                elementThis[min] = elementThis[page] - 5;
               }
-              elementThis.max1 += elementThis.min1;
+              elementThis[max] += elementThis[min];
             } else {
-              elementThis.arrMaxPage1.push(elementThis.min1);
+              elementThis[arrMax].push(elementThis[min]);
             }
 
-            elementThis.min1++;
+            elementThis[min]++;
           }
 
-          if(elementThis.max1 >= elementThis.maxPage1) {
+          if(elementThis[max] >= elementThis[maxPage]) {
 
-            elementThis.max1 = elementThis.maxPage1;
-            if(elementThis.maxPage2 > 10) {
-              elementThis.min1 = elementThis.max1 - 9;
+            elementThis[max] = elementThis[maxPage];
+            if(elementThis[maxPage] > 10) {
+              elementThis[min] = elementThis[max] - 9;
             }
-            elementThis.arrMaxPage1 = [];
+            elementThis[arrMax] = [];
 
-            while(elementThis.min1 <= elementThis.max1) {
-              elementThis.arrMaxPage1.push(elementThis.min1);
-              elementThis.min1++
+            while(elementThis[min] <= elementThis[max]) {
+              elementThis[arrMax].push(elementThis[min]);
+              elementThis[min]++
             }
           }
         }
 
-        function pageElement2() {
-          elementThis.maxPage2 = responseTwo.data.total_pages;
-          elementThis.min2 = 2;
-          elementThis.max2 = 11;
-          elementThis.arrMaxPage2 = [];
-
-          while(elementThis.min2 <= elementThis.max2) {
-
-            if (elementThis.max2 <= elementThis.page2) {
-              if(elementThis.maxPage2 > 6) {
-                elementThis.min2 = elementThis.page2 - 5;
-              }
-              elementThis.max2 += elementThis.min2;
-            } else {
-              elementThis.arrMaxPage2.push(elementThis.min2);
-            }
-
-            elementThis.min2++;
-          }
-
-          if(elementThis.max2 >= elementThis.maxPage2) {
-
-            elementThis.max2 = elementThis.maxPage2;
-            if(elementThis.maxPage2 > 10) {
-              elementThis.min2 = elementThis.max2 - 9;
-            }
-            elementThis.arrMaxPage2 = [];
-
-            while(elementThis.min2 <= elementThis.max2) {
-              elementThis.arrMaxPage2.push(elementThis.min2);
-              elementThis.min2++
-            }
-          }
-        }
-
-        pageElement1();
-        pageElement2();
+        pageElement('maxPage1', responseOne, 'min1', 'max1', 'arrMaxPage1', 'page1');
+        pageElement('maxPage2', responseTwo, 'min2', 'max2', 'arrMaxPage2', 'page2');
 
         one(responseOne);
         second(responseTwo);
