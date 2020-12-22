@@ -43,7 +43,7 @@
 
         <div class="page">
           <button type="button" name="button" @click="back('page1')">Back Page</button>
-          <button class="numbers" type="button" name="button" @click="page('page1' ,1)" v-if="maxPage1 > 1">1</button>
+          <button class="numbers" type="button" name="button" @click="page('page1' ,1)" v-if="maxPage1 >= 1">1</button>
           <button class="numbers" type="button" name="button" v-for="element in arrMaxPage1" @click="page('page1', element)">{{ element }}</button>
           <button class="numbers" type="button" name="button" @click="page('page1', maxPage1)" v-if="max1 < maxPage1">{{ maxPage1 }}</button>
           <button type="button" name="button" @click="next('page1', maxPage1)">Next Page</button>
@@ -65,7 +65,7 @@
 
         <div class="page" v-if="series.length > 0">
           <button type="button" name="button" @click="back('page2')">Back Page</button>
-          <button class="numbers" type="button" name="button" @click="page('page2', 1)" v-if="maxPage2 > 1">1</button>
+          <button class="numbers" type="button" name="button" @click="page('page2', 1)" v-if="maxPage2 >= 1">1</button>
           <button class="numbers" type="button" name="button" v-for="element in arrMaxPage2" @click="page('page2', element)">{{ element }}</button>
           <button class="numbers" type="button" name="button" @click="page('page2', maxPage2)" v-if="max2 < maxPage2">{{ maxPage2 }}</button>
           <button type="button" name="button" @click="next('page2', maxPage2)">Next Page</button>

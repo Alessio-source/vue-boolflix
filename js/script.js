@@ -107,7 +107,9 @@ var app = new Vue({
           while(elementThis.min1 <= elementThis.max1) {
 
             if (elementThis.max1 <= elementThis.page1) {
-              elementThis.min1 = elementThis.page1 - 5;
+              if(elementThis.maxPage2 > 6) {
+                elementThis.min1 = elementThis.page1 - 5;
+              }
               elementThis.max1 += elementThis.min1;
             } else {
               elementThis.arrMaxPage1.push(elementThis.min1);
@@ -119,7 +121,9 @@ var app = new Vue({
           if(elementThis.max1 >= elementThis.maxPage1) {
 
             elementThis.max1 = elementThis.maxPage1;
-            elementThis.min1 = elementThis.max1 - 9;
+            if(elementThis.maxPage2 > 10) {
+              elementThis.min1 = elementThis.max1 - 9;
+            }
             elementThis.arrMaxPage1 = [];
 
             while(elementThis.min1 <= elementThis.max1) {
@@ -138,7 +142,9 @@ var app = new Vue({
           while(elementThis.min2 <= elementThis.max2) {
 
             if (elementThis.max2 <= elementThis.page2) {
-              elementThis.min2 = elementThis.page2 - 5;
+              if(elementThis.maxPage2 > 6) {
+                elementThis.min2 = elementThis.page2 - 5;
+              }
               elementThis.max2 += elementThis.min2;
             } else {
               elementThis.arrMaxPage2.push(elementThis.min2);
@@ -150,7 +156,9 @@ var app = new Vue({
           if(elementThis.max2 >= elementThis.maxPage2) {
 
             elementThis.max2 = elementThis.maxPage2;
-            elementThis.min2 = elementThis.max2 - 9;
+            if(elementThis.maxPage2 > 10) {
+              elementThis.min2 = elementThis.max2 - 9;
+            }
             elementThis.arrMaxPage2 = [];
 
             while(elementThis.min2 <= elementThis.max2) {
