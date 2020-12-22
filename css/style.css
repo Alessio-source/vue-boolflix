@@ -41,9 +41,11 @@ main > nav {
   color: white;
 }
 
-main > nav > h2 {
+main > nav > a {
   text-transform: uppercase;
   color: #F81B0E;
+  font-size: 2em;
+  text-decoration: none;
 }
 
 main > nav > label {
