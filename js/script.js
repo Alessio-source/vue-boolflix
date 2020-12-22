@@ -36,7 +36,6 @@ var app = new Vue({
     },
     page: function(page, index) {
       this[page] = index;
-      console.log(this[page]);
       this.searchMovie();
     },
     search: function() {

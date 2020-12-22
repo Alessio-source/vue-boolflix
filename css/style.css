@@ -103,6 +103,7 @@ main > .cards > section > .card {
 main > .cards > section > .card > img {
   height: 517px;
   transition: all 0.5s;
+  width: 342px;
 }
 
 main > .cards > section > .card > .info {
