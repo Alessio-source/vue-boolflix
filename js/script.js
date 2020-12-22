@@ -177,6 +177,21 @@ var app = new Vue({
               });
             });
 
+            axios.get('https://api.themoviedb.org/3/genre/movie/list?api_key=87999777404e3c905e01e7dfe9466bae&language=it')
+            .then((response) => {
+              arrFilms[index].genre_ids.forEach((item, i) => {
+                var id = item;
+                var index2 = i;
+                var list = response.data.genres;
+                list.forEach((element, i) => {
+                  if(element.id == id) {
+                    id = element.name;
+                  }
+                });
+                arrFilms[index].genre_ids[i] = id;
+              });
+            });
+
             setTimeout( () => {
               for (let i = 0; i < arrFilms[index].vote_average; i++) {
                 const card = elementThis.$el.getElementsByClassName("card");
@@ -224,6 +239,21 @@ var app = new Vue({
                 if (arrSeries[index].cast.length < 5) {
                   arrSeries[index].cast.push({ name: element.name});
                 }
+              });
+            });
+
+            axios.get('https://api.themoviedb.org/3/genre/movie/list?api_key=87999777404e3c905e01e7dfe9466bae&language=it')
+            .then((response) => {
+              arrSeries[index].genre_ids.forEach((item, i) => {
+                var id = item;
+                var index2 = i;
+                var list = response.data.genres;
+                list.forEach((element, i) => {
+                  if(element.id == id) {
+                    id = element.name;
+                  }
+                });
+                arrSeries[index].genre_ids[i] = id;
               });
             });
 

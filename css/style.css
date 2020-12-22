@@ -129,14 +129,18 @@ main > .cards > section > .card > .info .active {
   color: #FFD700;
 }
 
-main > .cards > section > .card > .info > .cast-names {
+main > .cards > section > .card > .info > .inline-info {
   margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
 }
 
-main > .cards > section > .card > .info > .cast-names > p:not(:last-of-type) {
+main > .cards > section > .card > .info > .inline-info > p:not(:last-of-type) {
   margin-right: 5px;
+}
+
+main > .cards > section > .card > .info > .inline-info > p:not(:first-of-type):not(:last-of-type)::after {
+  content: ","
 }
 
 main > .cards > section > .card:hover > img {
