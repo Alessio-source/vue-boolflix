@@ -122,8 +122,7 @@ var app = new Vue({
           while(elementThis.min1 <= elementThis.max1) {
 
             if (elementThis.max1 <= elementThis.page1) {
-              elementThis.min1 = elementThis.page1 - 1;
-              var number = elementThis.min1 + 10;
+              elementThis.min1 = elementThis.page1 - 5;
               elementThis.max1 += elementThis.min1;
             } else {
               elementThis.arrMaxPage1.push(elementThis.min1);
@@ -154,8 +153,7 @@ var app = new Vue({
           while(elementThis.min2 <= elementThis.max2) {
 
             if (elementThis.max2 <= elementThis.page2) {
-              elementThis.min2 = elementThis.page2 - 1;
-              var number = elementThis.min2 + 10;
+              elementThis.min2 = elementThis.page2 - 5;
               elementThis.max2 += elementThis.min2;
             } else {
               elementThis.arrMaxPage2.push(elementThis.min2);
