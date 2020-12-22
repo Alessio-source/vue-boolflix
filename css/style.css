@@ -129,6 +129,16 @@ main > .cards > section > .card > .info .active {
   color: #FFD700;
 }
 
+main > .cards > section > .card > .info > .cast-names {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+main > .cards > section > .card > .info > .cast-names > p:not(:last-of-type) {
+  margin-right: 5px;
+}
+
 main > .cards > section > .card:hover > img {
   opacity: 0;
 }

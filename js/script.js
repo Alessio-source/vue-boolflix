@@ -19,9 +19,18 @@ var app = new Vue({
     arrMaxPage2: []
   },
   mounted() {
+
+    setTimeout(() => {
+      this.$forceUpdate();
+    }, 500);
     this.searchMovie();
+
+
   },
   methods: {
+    prova: function(prova) {
+      console.log(prova);
+    },
     next: function(page, maxPage) {
       if( this[page] < maxPage) {
         this[page]++;
@@ -158,6 +167,16 @@ var app = new Vue({
 
             arrFilms[index].vote_average = Math.round(arrFilms[index].vote_average / 2);
 
+            arrFilms[index].cast = [];
+            var linkCast = 'https://api.themoviedb.org/3/movie/' + arrFilms[index].id + '/credits?api_key=87999777404e3c905e01e7dfe9466bae&language=it';
+            axios.get(linkCast).then((response) => {
+              var nome = response.data.cast.forEach((element) => {
+                if (arrFilms[index].cast.length < 5) {
+                  arrFilms[index].cast.push({ name: element.name});
+                }
+              });
+            });
+
             setTimeout( () => {
               for (let i = 0; i < arrFilms[index].vote_average; i++) {
                 const card = elementThis.$el.getElementsByClassName("card");
@@ -197,6 +216,16 @@ var app = new Vue({
             }
 
             arrSeries[index].vote_average = Math.round(arrSeries[index].vote_average / 2);
+
+            arrSeries[index].cast = [];
+            var linkCast = 'https://api.themoviedb.org/3/movie/' + arrSeries[index].id + '/credits?api_key=87999777404e3c905e01e7dfe9466bae&language=it';
+            axios.get(linkCast).then((response) => {
+              var nome = response.data.cast.forEach((element) => {
+                if (arrSeries[index].cast.length < 5) {
+                  arrSeries[index].cast.push({ name: element.name});
+                }
+              });
+            });
 
             setTimeout( () => {
               for (let i = 0; i < arrSeries[index].vote_average; i++) {

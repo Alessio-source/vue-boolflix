@@ -29,7 +29,7 @@
 
         <h2>{{ title1 }}</h2>
         <section>
-          <div class="card" v-for="element in films">
+          <div class="card" v-for="(element, index) in films">
             <img :src="element.poster_path" alt="">
             <div class="info">
               <p>Titolo: {{ element.title }}</p>
@@ -37,6 +37,10 @@
               <p>Lingua: {{ element.original_language }}</p>
               <p>Voto: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> {{ element.vote_average }}</p>
               <p>Descrizione: {{ element.overview }}</p>
+              <div class="cast-names">
+                <p>Cast: </p>
+                <p v-for="elemento in element.cast">{{  elemento.name }},</p>
+              </div>
             </div>
           </div>
         </section>
@@ -59,6 +63,10 @@
               <p>Lingua: {{ element.original_language }}</p>
               <p>Voto: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> {{ element.vote_average }}</p>
               <p>Descrizione: {{ element.overview }}</p>
+              <div class="cast-names">
+                <p>Cast: </p>
+                <p v-for="elemento in element.cast">{{  elemento.name }},</p>
+              </div>
             </div>
           </div>
         </section>
