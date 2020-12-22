@@ -22,36 +22,21 @@ var app = new Vue({
     this.searchMovie();
   },
   methods: {
-    next: function() {
-      if(this.page1 < this.maxPage1) {
-        this.page1++;
+    next: function(page, maxPage) {
+      if( this[page] < maxPage) {
+        this[page]++;
       }
       this.searchMovie();
     },
-    back: function() {
-      if(this.page1 > 1) {
-        this.page1--;
+    back: function(page) {
+      if(this[page] > 1) {
+        this[page]--;
       }
       this.searchMovie();
     },
-    page: function(index) {
-      this.page1 = index;
-      this.searchMovie();
-    },
-    nextS: function() {
-      if(this.page2 < this.maxPage2) {
-        this.page2++;
-      }
-      this.searchMovie();
-    },
-    backS: function() {
-      if(this.page2 > 1) {
-        this.page2--;
-      }
-      this.searchMovie();
-    },
-    pageElement: function(index) {
-      this.page2 = index;
+    page: function(page, index) {
+      this[page] = index;
+      console.log(this[page]);
       this.searchMovie();
     },
     search: function() {
@@ -145,7 +130,7 @@ var app = new Vue({
         }
 
         function pageElement2() {
-          elementThis.maxPage2 = responseOne.data.total_pages;
+          elementThis.maxPage2 = responseTwo.data.total_pages;
           elementThis.min2 = 2;
           elementThis.max2 = 11;
           elementThis.arrMaxPage2 = [];
@@ -232,7 +217,7 @@ var app = new Vue({
               arrSeries[index].poster_path = "https://via.placeholder.com/342x517.png?text=Cover+Mancante";
             } else {
               var link = "https://image.tmdb.org/t/p/h632" + resultTwo[index].poster_path;
-              arrSeries[index].poster_path= link;
+              arrSeries[index].poster_path = link;
             }
 
             if (resultTwo[index].overview == "") {
