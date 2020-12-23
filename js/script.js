@@ -28,23 +28,32 @@ var app = new Vue({
 
   },
   methods: {
-    prova: function(prova) {
-      console.log(prova);
-    },
     next: function(page, maxPage) {
       if( this[page] < maxPage) {
         this[page]++;
       }
+
+      setTimeout(() => {
+        this.$forceUpdate();
+      }, 500);
       this.searchMovie();
     },
     back: function(page) {
       if(this[page] > 1) {
         this[page]--;
       }
+
+      setTimeout(() => {
+        this.$forceUpdate();
+      }, 500);
       this.searchMovie();
     },
     page: function(page, index) {
       this[page] = index;
+
+      setTimeout(() => {
+        this.$forceUpdate();
+      }, 500);
       this.searchMovie();
     },
     search: function() {
