@@ -19,41 +19,23 @@ var app = new Vue({
     arrMaxPage2: []
   },
   mounted() {
-
-    setTimeout(() => {
-      this.$forceUpdate();
-    }, 500);
     this.searchMovie();
-
-
   },
   methods: {
     next: function(page, maxPage) {
       if( this[page] < maxPage) {
         this[page]++;
       }
-
-      setTimeout(() => {
-        this.$forceUpdate();
-      }, 500);
       this.searchMovie();
     },
     back: function(page) {
       if(this[page] > 1) {
         this[page]--;
       }
-
-      setTimeout(() => {
-        this.$forceUpdate();
-      }, 500);
       this.searchMovie();
     },
     page: function(page, index) {
       this[page] = index;
-
-      setTimeout(() => {
-        this.$forceUpdate();
-      }, 500);
       this.searchMovie();
     },
     search: function() {
@@ -310,6 +292,10 @@ var app = new Vue({
         } else {
           elementThis.empty = "";
         }
+
+        setTimeout(() => {
+          elementThis.$forceUpdate();
+        }, 500);
 
     }))
     },
