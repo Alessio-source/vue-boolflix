@@ -143,6 +143,10 @@ main > .cards > section > .card > .info > .inline-info > p:not(:first-of-type):n
   content: ","
 }
 
+main > .cards > section > .card > .info > .inline-info > p:last-of-type::after {
+  content: "...";
+}
+
 main > .cards > section > .card:hover > img {
   opacity: 0;
 }

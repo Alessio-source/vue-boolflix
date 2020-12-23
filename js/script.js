@@ -161,7 +161,7 @@ var app = new Vue({
             arrFilms[index].cast = [];
             var linkCast = 'https://api.themoviedb.org/3/movie/' + arrFilms[index].id + '/credits?api_key=87999777404e3c905e01e7dfe9466bae&language=it';
             axios.get(linkCast).then((response) => {
-              var nome = response.data.cast.forEach((element) => {
+              response.data.cast.forEach((element) => {
                 if (arrFilms[index].cast.length < 5) {
                   arrFilms[index].cast.push({ name: element.name});
                 }
@@ -171,14 +171,16 @@ var app = new Vue({
             axios.get('https://api.themoviedb.org/3/genre/movie/list?api_key=87999777404e3c905e01e7dfe9466bae&language=it')
             .then((response) => {
               arrFilms[index].genre_ids.forEach((item, i) => {
-                var id = item;
-                var index2 = i;
-                var list = response.data.genres;
-                list.forEach((element, i) => {
+                let id = item;
+                const index2 = i;
+                const list = response.data.genres;
+
+                list.forEach((element) => {
                   if(element.id == id) {
                     id = element.name;
                   }
                 });
+
                 arrFilms[index].genre_ids[i] = id;
               });
             });
@@ -226,7 +228,7 @@ var app = new Vue({
             arrSeries[index].cast = [];
             var linkCast = 'https://api.themoviedb.org/3/movie/' + arrSeries[index].id + '/credits?api_key=87999777404e3c905e01e7dfe9466bae&language=it';
             axios.get(linkCast).then((response) => {
-              var nome = response.data.cast.forEach((element) => {
+              response.data.cast.forEach((element) => {
                 if (arrSeries[index].cast.length < 5) {
                   arrSeries[index].cast.push({ name: element.name});
                 }
@@ -236,14 +238,16 @@ var app = new Vue({
             axios.get('https://api.themoviedb.org/3/genre/movie/list?api_key=87999777404e3c905e01e7dfe9466bae&language=it')
             .then((response) => {
               arrSeries[index].genre_ids.forEach((item, i) => {
-                var id = item;
-                var index2 = i;
-                var list = response.data.genres;
-                list.forEach((element, i) => {
+                let id = item;
+                const index2 = i;
+                const list = response.data.genres;
+
+                list.forEach((element) => {
                   if(element.id == id) {
                     id = element.name;
                   }
                 });
+
                 arrSeries[index].genre_ids[i] = id;
               });
             });
